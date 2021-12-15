@@ -247,7 +247,7 @@ XHR.onreadystatechange = function(){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     span.innerHTML = price; 
     var howMuchBtc = $("#btc").val();
-    $("input.usd").val(howMuchBtc * price);
+    $("input[name=usd]").val(howMuchBtc * price);
   }
 }
 
@@ -263,7 +263,7 @@ XHR.onreadystatechange = function(){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     span.innerHTML = price; 
     var howMuchUsd = $("#usd").val();
-    $("input.btc").val(howMuchUsd * price);
+    $("input[name=btc]").val(howMuchUsd * price);
   }
 }
 
@@ -278,9 +278,6 @@ XHR.send();
 <body>
   <div class="middle">
     <h1>Converter</h1>
-    <span id="price"></span>
-
-<button id="btn">Refresh Data</button>
 
 <div id="fancy-inputs">
       <label  class="input">
