@@ -292,7 +292,7 @@
     XHR.onreadystatechange = function(){
       if(XHR.readyState === 4 && XHR.status === 200){
         var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
-        spanusd.innerHTML = price; 
+        spanusd.innerHTML = howMuchUsd / price; 
         var howMuchUsd =  $(this).val();
         $("#btc").val(howMuchUsd / price); 
       }
