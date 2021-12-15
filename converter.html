@@ -248,7 +248,7 @@ XHR.onreadystatechange = function(){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     var howMuchBtc = document.querySelector("#btc").value;
     spanbtc.innerHTML = howMuchBtc * price; 
-    document.querySelector("#btc").value =  howMuchBtc * price; 
+    document.querySelector("#usd").value =  howMuchBtc * price; 
   }
 }
 
@@ -265,7 +265,7 @@ XHR.onreadystatechange = function(){
     spanusd.innerHTML = price; 
     var howMuchUsd = document.querySelector("#usd").value;
     spanusd.innerHTML = howMuchUsd * price; 
-    document.querySelector("#usd").innerHTML =  howMuchUsd * price; 
+    document.querySelector("#btc").innerHTML =  howMuchUsd * price; 
   }
 }
 
