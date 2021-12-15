@@ -246,7 +246,9 @@ XHR.onreadystatechange = function(){
   if(XHR.readyState === 4 && XHR.status === 200){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     span.innerHTML = price; 
-
+    var howMuchBtc = Document.getElementById("btc").value;
+    var howMuchUsd = Document.getElementById("usd").value;
+    howMuchUsd = howMuchBtc * price;
   }
 }
 
