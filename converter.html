@@ -275,9 +275,9 @@
       var XHR = new XMLHttpRequest();
     XHR.onreadystatechange = function(){
       if(XHR.readyState === 4 && XHR.status === 200){
-        var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
-        var howMuchBtc = $(this).val();
-        spanbtc.innerHTML = howMuchBtc * price; 
+        var price = parseFloat(JSON.parse(XHR.responseText).bpi.EUR.rate);
+        var howMuchBtc = parseFloat($(this).val(), 10);
+        console.log("CONVERT: " + price * howMuchBtc);
         $("#usd").val(howMuchBtc * price); 
       }
     }
@@ -287,14 +287,14 @@
      });
     
      $("#usd").on("change paste keyup", function() {
+        console.log($(this).val());
       var XHR = new XMLHttpRequest();
-    
     XHR.onreadystatechange = function(){
       if(XHR.readyState === 4 && XHR.status === 200){
-        var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
-        spanusd.innerHTML = howMuchUsd / price; 
-        var howMuchUsd =  $(this).val();
-        $("#btc").val(howMuchUsd / price); 
+        var price = parseFloat(JSON.parse(XHR.responseText).bpi.EUR.rate);
+        var howMuchUsd = parseFloat($(this).val(), 10);
+        console.log("CONVERT: " + price / howMuchUsd);
+        $("#usd").val(howMuchUsd / price); 
       }
     }
     
