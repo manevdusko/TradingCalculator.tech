@@ -246,9 +246,24 @@ XHR.onreadystatechange = function(){
   if(XHR.readyState === 4 && XHR.status === 200){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     span.innerHTML = price; 
-    var howMuchBtc = Document.getElementById("btc").value;
-    var howMuchUsd = Document.getElementById("usd").value;
-    howMuchUsd = howMuchBtc * price;
+    var howMuchBtc = $("#btc").val();
+    $("#usd").val(howMuchBtc * price);
+  }
+}
+
+XHR.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
+XHR.send();
+ });
+
+ usd.addEventListener("change", function(){
+  var XHR = new XMLHttpRequest();
+
+XHR.onreadystatechange = function(){
+  if(XHR.readyState === 4 && XHR.status === 200){
+    var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
+    span.innerHTML = price; 
+    var howMuchUsd = $("#usd").val();
+    $("#btc").val(howMuchBtc * price);
   }
 }
 
