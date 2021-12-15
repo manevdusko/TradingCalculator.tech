@@ -237,7 +237,8 @@ $(document).ready(function () {
     });
 
 var btn = document.querySelector("#btn");
-var span = document.querySelector("#price");
+var spanbtc = document.querySelector("#pricebtc");
+var spanusd = document.querySelector("#priceusd");
 
 btc.addEventListener("change", function(){
   var XHR = new XMLHttpRequest();
@@ -245,9 +246,9 @@ btc.addEventListener("change", function(){
 XHR.onreadystatechange = function(){
   if(XHR.readyState === 4 && XHR.status === 200){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
-    span.innerHTML = price; 
     var howMuchBtc = $("#btc").val();
-    $("input[name=usd]").val(howMuchBtc * price);
+    spanbtc.innerHTML = howMuchBtc * price; 
+    document.querySelector("#btc").innerHTML =  howMuchBtc * price; 
   }
 }
 
@@ -261,9 +262,10 @@ XHR.send();
 XHR.onreadystatechange = function(){
   if(XHR.readyState === 4 && XHR.status === 200){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
-    span.innerHTML = price; 
+    spanusd.innerHTML = price; 
     var howMuchUsd = $("#usd").val();
-    $("input[name=btc]").val("howMuchUsd * price");
+    spanusd.innerHTML = howMuchUsd * price; 
+    document.querySelector("#usd").innerHTML =  howMuchUsd * price; 
   }
 }
 
@@ -278,17 +280,21 @@ XHR.send();
 <body>
   <div class="middle">
     <h1>Converter</h1>
+    
 
 <div id="fancy-inputs">
       <label  class="input">
         <input id="btc" type="number"  name="btc">
         <span><span>Amout btc:</span></span>
       </label>
+      <span id="pricebtc"></span>
+
 
       <label class="input">
         <input id="usd" type="number"  name="usd">
         <span><span>Amout usd:</span></span>
       </label>
+      <span id="priceusd"></span>
     </div>
 
 
