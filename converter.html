@@ -263,7 +263,7 @@ XHR.onreadystatechange = function(){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     span.innerHTML = price; 
     var howMuchUsd = $("#usd").val();
-    $("input[name=btc]").val(howMuchUsd * price);
+    $("input[name=btc]").val("howMuchUsd * price");
   }
 }
 
