@@ -224,55 +224,6 @@
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-
-$(document).ready(function () {
-      $('input').blur(function () {
-        if ($(this).val().length > 0) {
-          $(this).addClass('white');
-        } else {
-          $(this).removeClass('white');
-        }
-      });
-    });
-
-var btn = document.querySelector("#btn");
-var spanbtc = document.querySelector("#pricebtc");
-var spanusd = document.querySelector("#priceusd");
-
-btc.addEventListener("change", function(){
-  var XHR = new XMLHttpRequest();
-
-XHR.onreadystatechange = function(){
-  if(XHR.readyState === 4 && XHR.status === 200){
-    var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
-    var howMuchBtc = document.querySelector("#btc").value;
-    spanbtc.innerHTML = howMuchBtc * price; 
-    document.querySelector("#usd").value =  howMuchBtc * price; 
-  }
-}
-
-XHR.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
-XHR.send();
- });
-
- usd.addEventListener("change", function(){
-  var XHR = new XMLHttpRequest();
-
-XHR.onreadystatechange = function(){
-  if(XHR.readyState === 4 && XHR.status === 200){
-    var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
-    spanusd.innerHTML = price; 
-    var howMuchUsd = document.querySelector("#usd").value;
-    spanusd.innerHTML = howMuchUsd * price; 
-    document.querySelector("#btc").innerHTML =  howMuchUsd * price; 
-  }
-}
-
-XHR.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
-XHR.send();
- });
-  </script>
 
   <title>Calculator</title>
 </head>
@@ -303,6 +254,61 @@ XHR.send();
   </div> 
   <div style="height:62px; top: 0px; position: absolute; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;"><div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no" width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0" style="border:0;margin:0;padding:0;"></iframe></div><div style="color: #626B7F; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;"><a href="https://coinlib.io" target="_blank" style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by Coinlib</div></div>
 
+
+  <script>
+    $(document).ready(function () {
+          $('input').blur(function () {
+            if ($(this).val().length > 0) {
+              $(this).addClass('white');
+            } else {
+              $(this).removeClass('white');
+            }
+          });
+        });
+    
+    var btn = document.querySelector("#btn");
+    var spanbtc = document.querySelector("#pricebtc");
+    var spanusd = document.querySelector("#priceusd");
+    
+    btc.change(
+        function(){
+            console.log($("#btc").val())
+        }
+    )
+
+    // btc.change(function(){
+    //     console.log($("#btc").val());
+    //   var XHR = new XMLHttpRequest();
+    // XHR.onreadystatechange = function(){
+    //   if(XHR.readyState === 4 && XHR.status === 200){
+    //     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
+    //     var howMuchBtc = document.querySelector("#btc").value;
+    //     spanbtc.innerHTML = howMuchBtc * price; 
+    //     document.querySelector("#usd").value =  howMuchBtc * price; 
+    //   }
+    // }
+    
+    // XHR.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
+    // XHR.send();
+    //  });
+    
+    //  usd.change(function(){
+    //   var XHR = new XMLHttpRequest();
+    
+    // XHR.onreadystatechange = function(){
+    //   if(XHR.readyState === 4 && XHR.status === 200){
+    //     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
+    //     spanusd.innerHTML = price; 
+    //     var howMuchUsd = document.querySelector("#usd").value;
+    //     spanusd.innerHTML = howMuchUsd * price; 
+    //     document.querySelector("#btc").innerHTML =  howMuchUsd * price; 
+    //   }
+    // }
+    
+    // XHR.open("GET", "https://api.coindesk.com/v1/bpi/currentprice.json");
+    // XHR.send();
+    //  });
+      </script>
 </body>
 
 </html>
