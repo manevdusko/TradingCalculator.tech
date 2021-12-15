@@ -247,7 +247,7 @@ XHR.onreadystatechange = function(){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     span.innerHTML = price; 
     var howMuchBtc = $("#btc").val();
-    $("#usd").val(howMuchBtc * price);
+    $("input.usd").val(howMuchBtc * price);
   }
 }
 
@@ -263,7 +263,7 @@ XHR.onreadystatechange = function(){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     span.innerHTML = price; 
     var howMuchUsd = $("#usd").val();
-    $("#btc").val(howMuchBtc * price);
+    $("input.btc").val(howMuchUsd * price);
   }
 }
 
@@ -284,16 +284,15 @@ XHR.send();
 
 <div id="fancy-inputs">
       <label  class="input">
-        <input id="btc" type="number" id="accs">
+        <input id="btc" type="number"  name="btc">
         <span><span>Amout btc:</span></span>
       </label>
 
       <label class="input">
-        <input id="usd" type="number" id="risk">
+        <input id="usd" type="number"  name="usd">
         <span><span>Amout usd:</span></span>
       </label>
     </div>
-    <button onclick="presmetaj()" class="btn">Calculate</button>
 
 
    <a href="./donations.html"> <p style="color: white; font-size: 23px; text-align: center;">support our work by making a</p><p style="color: lightgreen; font-size: 23px; text-align: center;"> donation</p>
