@@ -246,9 +246,9 @@ btc.addEventListener("change", function(){
 XHR.onreadystatechange = function(){
   if(XHR.readyState === 4 && XHR.status === 200){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
-    var howMuchBtc = $("#btc").val();
+    var howMuchBtc = document.querySelector("#btc").value;
     spanbtc.innerHTML = howMuchBtc * price; 
-    document.querySelector("#btc").innerHTML =  howMuchBtc * price; 
+    document.querySelector("#btc").value =  howMuchBtc * price; 
   }
 }
 
@@ -263,7 +263,7 @@ XHR.onreadystatechange = function(){
   if(XHR.readyState === 4 && XHR.status === 200){
     var price = JSON.parse(XHR.responseText).bpi.EUR.rate;
     spanusd.innerHTML = price; 
-    var howMuchUsd = $("#usd").val();
+    var howMuchUsd = document.querySelector("#usd").value;
     spanusd.innerHTML = howMuchUsd * price; 
     document.querySelector("#usd").innerHTML =  howMuchUsd * price; 
   }
