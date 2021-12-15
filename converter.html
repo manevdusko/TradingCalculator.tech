@@ -225,6 +225,17 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+
+$(document).ready(function () {
+      $('input').blur(function () {
+        if ($(this).val().length > 0) {
+          $(this).addClass('white');
+        } else {
+          $(this).removeClass('white');
+        }
+      });
+    });
+
 var btn = document.querySelector("#btn");
 var span = document.querySelector("#price");
 
@@ -250,8 +261,7 @@ XHR.send();
 <body>
   <div class="middle">
     <h1>Converter</h1>
-
-    <h1>Bitcoin Current Price is: <span id="price"></span></h1>
+    <span id="price"></span>
 
 <button id="btn">Refresh Data</button>
 
