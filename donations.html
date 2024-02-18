@@ -21,14 +21,13 @@
       margin: 0 auto;
     }
 
-    h1 {
+     h1 {
       margin: 50px 0 0 0;
-      color: #fff;
-      font-family: "Indie Flower", cursive;
+      color: white;
       font-size: 48px;
       font-weight: normal;
       text-align: center;
-    }
+    } 
 
     #fancy-inputs {
       float: left;
@@ -218,49 +217,27 @@
     .btn:hover {
       background-color: #374b60;
     }
-
-    a:link {
-      text-decoration: none;
-    }
-
-    a:visited {
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: none;
-    }
-
-    a:active {
-      text-decoration: none;
-    }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
+      const copyElement = (e) => {
+  let selection = window.getSelection();
+  if (selection.rangeCount > 0) {
+    selection.removeAllRanges();
+  }
+  
+  let range = document.createRange();
+  range.selectNode(e);
+  selection.addRange(range);
+  document.execCommand('copy');
+};
 
-    $(document).ready(function () {
-      $('input').blur(function () {
-        if ($(this).val().length > 0) {
-          $(this).addClass('white');
-        } else {
-          $(this).removeClass('white');
-        }
-      });
-    });
-
-
-    function presmetaj() {
-      var accs = document.getElementById("accs").value
-      var risk = document.getElementById("risk").value
-      var sl = document.getElementById("sl").value
-      var target = document.getElementById("target").value
-      var ta = (parseFloat(risk) / 100 * parseFloat(accs)) / (parseFloat(sl) / 100)
-      alert(" You have a $" + accs + " account"
-        + "\n Account risk is " + risk + "%" + "\n Stop Loss of the trade is " + sl + "% and that will be $" + (parseFloat(risk) / 100 * parseFloat(accs))
-        + "\n You need to enter the trade with $" + ta + " in order to have " + risk + "% account risk"
-        + "\n If you win with a " + target + "% target, You'll win $" + parseFloat(ta) * parseFloat(target) / 100);
-    }
+document.addEventListener('click', (e) => {
+  if(e.target.matches('p')) {
+    copyElement(e.target);
+  }
+});
   </script>
 
   <title>Calculator</title>
@@ -268,49 +245,40 @@
 
 <body>
   <div class="middle">
-    <h1>Calculator</h1>
+    <h1>All donations will go to the dev team to help fund the team to continue to develop.</h1>
 
-    <div id="fancy-inputs">
-      <label class="input">
-        <input type="number" id="accs">
-        <span><span>Account Size in $:</span></span>
-      </label>
+    <br/><br/><br/>
+        <span style="color: white; font-size: 23px; text-align: center;">BTC:</span></span>
+        <p style="color: lightgreen; font-size: 23px; text-align: center;">1La26EQsFPNrEKcm4GfdKSiARqks5NAL6d</p>
+        <br/><br/><br/>
 
-      <label class="input">
-        <input type="number" id="risk">
-        <span><span>What's your portfolio risk in %:</span></span>
-      </label>
+        <span style="color: white; font-size: 23px; text-align: center;">ERC20(ETH):</span></span>
+        <p style="color: lightgreen; font-size: 23px; text-align: center;">0x70fcc4847cb4348e047fb3961fd9589147684895</p>
+        <br/><br/><br/>
 
-      <label class="input">
-        <input type="number" id="sl">
-        <span><span>What's your Stop Loss on the trade in %:</span></span>
-      </label>
+        <!-- <span style="color: white; font-size: 23px; text-align: center;">BEP20:</span></span>
+        <p style="color: lightgreen; font-size: 23px; text-align: center;">0x70fcc4847cb4348e047fb3961fd9589147684895</p>
+        <br/><br/><br/>
 
-      <label class="input">
-        <input type="number" id="target">
-        <span><span>What's your target in %:</span></span>
-      </label>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <span style="color: white; font-size: 23px; text-align: center;">BEP2:</span></span>
+        <p style="color: lightgreen; font-size: 23px; text-align: center;">bnb136ns6lfw4zs5hg4n85vdthaad7hq5m4gtkgf23</p>
+        <br/><br/><br/>
 
-    </div>
-    <button onclick="presmetaj()" class="btn">Calculate</button>
-    <a href="./donations.html">
-      <p style="color: lightgreen; font-size: 23px; text-align: center; text-decoration: none;">☕Buy me a coffee☕</p>
+        <span style="color: white; font-size: 23px; text-align: center;">Solana:</span></span>
+        <p style="color: lightgreen; font-size: 23px; text-align: center;">6usQqnzyfZTbYq3UHheMkvTjtHSg8zb2hLNnQBisZfCZ</p>
+        <br/><br/><br/> -->
 
-  </div>
-  <div
-    style="height:62px; top: 0px; position: absolute; background-color: #1D2330; overflow:hidden; box-sizing: border-box; border: 1px solid #282E3B; border-radius: 4px; text-align: right; line-height:14px; block-size:62px; font-size: 12px; font-feature-settings: normal; text-size-adjust: 100%; box-shadow: inset 0 -20px 0 0 #262B38;padding:1px;padding: 0px; margin: 0px; width: 100%;">
-    <div style="height:40px; padding:0px; margin:0px; width: 100%;"><iframe
-        src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no"
-        width="100%" height="36px" scrolling="auto" marginwidth="0" marginheight="0" frameborder="0" border="0"
-        style="border:0;margin:0;padding:0;"></iframe></div>
-    <div
-      style="color: #626B7F; line-height: 14px; font-weight: 400; font-size: 11px; box-sizing: border-box; padding: 2px 6px; width: 100%; font-family: Verdana, Tahoma, Arial, sans-serif;">
-      <a href="https://coinlib.io" target="_blank"
-        style="font-weight: 500; color: #626B7F; text-decoration:none; font-size:11px">Cryptocurrency Prices</a>&nbsp;by
-      Coinlib</div>
-  </div>
+        <span style="color: white; font-size: 23px; text-align: center;">TRC20(USDT):</span></span>
+        <p style="color: lightgreen; font-size: 23px; text-align: center;">TQRvo2U7HEZXQynjg2Peeu66KjmuNMFW2y</p>
+        <br/><br/><br/>
+<!-- 
+        <span style="color: white; font-size: 23px; text-align: center;">KCC:</span></span>
+        <p style="color: lightgreen; font-size: 23px; text-align: center;">0x98c40ec3b0ed73bab90ebffe43272859da0ca2e4</p>
+        <br/><br/><br/> -->
 
+        <br/>
+        <a href="./index.html"><button class="btn">Calculator</button></a>
+        
+  </div> 
 </body>
-
 </html>
